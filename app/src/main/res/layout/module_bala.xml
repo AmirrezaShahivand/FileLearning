@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+
+    >
+
+    <TextView
+        android:id="@+id/txt_path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="External Storage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="18sp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/color_icons"
+        />
+
+    <ImageButton
+        android:id="@+id/add_folder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_add_folder"
+        app:tint="?attr/colorOnSecondary"
+        android:background="@color/design_default_color_surface"
+        />
+    <ImageButton
+        android:id="@+id/add_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/add_folder"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_add_file"
+        app:tint="?attr/colorOnSecondary"
+        android:background="@color/design_default_color_surface"
+        />
+    <ImageButton
+        app:tint="?attr/colorOnSecondary"
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/add_file"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_list"
+        android:background="@color/design_default_color_surface"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="?attr/colorOnSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list"
+        android:layout_marginTop="8dp"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
