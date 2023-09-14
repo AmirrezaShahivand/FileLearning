@@ -20,4 +20,8 @@
     <style name="MyToolBar" parent="Theme.MaterialComponents" />
 
     <style name="Theme.File" parent="Base.Theme.File" />
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <!-- دیگر تنظیمات تم -->
+    </style>
+
 </resources>

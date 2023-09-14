@@ -74,6 +74,11 @@ class FileAdapter(val data: ArrayList<File> , val fileEvent: FileEvent) : Recycl
         holder.bindViews(data[position])
     }
 
+    fun addNewFile(newFile: File){
+        data.add(0 , newFile)
+        notifyItemInserted(0)
+    }
+
     private fun isImage(path: String): Boolean {
         val mimeType: String = URLConnection.guessContentTypeFromName(path)
         return mimeType.startsWith("image")
