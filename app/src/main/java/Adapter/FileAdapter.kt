@@ -53,7 +53,14 @@ class FileAdapter(val data: ArrayList<File> , val fileEvent: FileEvent) : Recycl
                 }else{
                     fileEvent.onFileClicked(file ,fileType )
                 }
+
+
             }
+            itemView.setOnLongClickListener {
+                fileEvent.onLongClicked(file , adapterPosition)
+                true
+            }
+
         }
 
 
@@ -79,6 +86,11 @@ class FileAdapter(val data: ArrayList<File> , val fileEvent: FileEvent) : Recycl
         notifyItemInserted(0)
     }
 
+    fun removeFile(olfFile: File , position: Int){
+        data.remove(olfFile)
+        notifyItemRemoved(position)
+    }
+
     private fun isImage(path: String): Boolean {
         val mimeType: String = URLConnection.guessContentTypeFromName(path)
         return mimeType.startsWith("image")
@@ -95,6 +107,8 @@ class FileAdapter(val data: ArrayList<File> , val fileEvent: FileEvent) : Recycl
     interface FileEvent{
         fun onFileClicked(file: File , type : String)
         fun onFolderClicked(path: String)
+
+        fun onLongClicked(file: File , position : Int)
     }
 
 }

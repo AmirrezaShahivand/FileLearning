@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create new folder"
+        android:text="Create new file"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,24 +38,24 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_cancel"
+        android:id="@+id/btn_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="cancel"
-        app:layout_constraintEnd_toStartOf="@+id/btn_done"
+        app:layout_constraintEnd_toStartOf="@+id/btn_yes"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myTextInputLayout" />
 
     <Button
-        android:id="@+id/btn_done"
+        android:id="@+id/btn_yes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Done"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_cancel"
-        app:layout_constraintTop_toTopOf="@+id/btn_cancel" />
+        app:layout_constraintStart_toEndOf="@+id/btn_no"
+        app:layout_constraintTop_toTopOf="@+id/btn_no" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

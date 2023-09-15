@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.file.databinding.DialogAddFileBinding
 import com.example.file.databinding.DialogAddFolderBinding
+import com.example.file.databinding.DialogRemoveBinding
 import com.example.file.databinding.FragmentFileBinding
 import java.io.File
 import java.nio.file.Files
@@ -82,12 +83,12 @@ class FragmentFile(val path: String) : Fragment(), FileAdapter.FileEvent {
         dialog.show()
 
 
-        addFileBinding.btnCancel.setOnClickListener {
+        addFileBinding.btnNo.setOnClickListener {
             dialog.dismiss()
         }
 
 
-        addFileBinding.btnDone.setOnClickListener {
+        addFileBinding.btnYes.setOnClickListener {
             val nameOfFolder = addFileBinding.editFile.text.toString()
 
             // addres + / + name
@@ -120,16 +121,17 @@ class FragmentFile(val path: String) : Fragment(), FileAdapter.FileEvent {
         dialog.show()
 
 
-        addFolderBinding.btnCancel.setOnClickListener {
+        addFolderBinding.btnNo.setOnClickListener {
             dialog.dismiss()
         }
 
 
-        addFolderBinding.btnDone.setOnClickListener {
+        addFolderBinding.btnYes.setOnClickListener {
             val nameOfFolder = addFolderBinding.editFile.text.toString()
 
             // addres + / + name
             val newFile = File(path + File.separator + nameOfFolder)
+
 
             if (!newFile.exists()) {
 
@@ -175,6 +177,23 @@ class FragmentFile(val path: String) : Fragment(), FileAdapter.FileEvent {
         transaction.addToBackStack(null)
         transaction.commit()
 
+    }
+
+    override fun onLongClicked(file: File, position: Int) {
+        val dialog = AlertDialog.Builder(context).create()
+        val dialogRemoveBinding = DialogRemoveBinding.inflate(layoutInflater)
+        dialog.setView(dialogRemoveBinding.root)
+        dialog.show()
+
+        dialogRemoveBinding.btnNo.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialogRemoveBinding.btnYes.setOnClickListener {
+            myAdapter.removeFile(file , position)
+            file.delete()
+            dialog.dismiss()
+        }
     }
 
 
